@@ -1,5 +1,4 @@
 <?php
-
 header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
 
 $noOfImages = 30;
@@ -12,53 +11,47 @@ if(!empty($_GET['size'])){
     $imageSize = $_GET['size'];
 }
 ?>
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 <head>
     <title>SPDY Test Page</title>
-    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="Keywords" content=""/>
     <meta name="Description" content=""/>
-    <link rel="stylesheet" type="text/css" href="static/main.css"/>
-    <script src="static/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="static/main.css">
 </head>
 <body>
-  <div class="header">
-
+  <div class="center">
+      <h1>Enhanced HTTP vs HTTPS(SPDY) Test</h1>
   </div>
-  <div class="body-content">
-    <div class="fk-text-center">
-        <h1 class="fk-font-24">Enhanced HTTP vs HTTPS(SPDY) Test</h1>
-    </div>
-    <div class="test-params fk-text-center tmargin20 fk-font-16">
-        <div class="sizes">
-            <span>Select Image Size </span>
-            <a href="" class="1kb selected" data-image-size="5">5kB</a>
-            <a href="" class="10kb" data-image-size="10">10kB</a>
-            <a href="" class="50kb" data-image-size="50">50kB</a>
-            <a href="" class="100kb" data-image-size="100">100kB</a>
+  <div class="test-params center tmargin20">
+      <div class="sizes">
+          <span>Select Image Size </span>
+          <a href="" class="1kb selected" data-image-size="5">5kB</a>
+          <a href="" class="10kb" data-image-size="10">10kB</a>
+          <a href="" class="50kb" data-image-size="50">50kB</a>
+          <a href="" class="100kb" data-image-size="100">100kB</a>
 
-        </div>
-        <div class="no-of-images">
-            Enter Number Of Images:  <input class"l-margin10" type="text" value="<?php echo $noOfImages;?>" />
-        </div>
-        <div class="refresh-cont tmargin20">
-            Refresh the button to load the test with selected params
-            <a href="" class="refresh-btn lmargin10 fk-font-16">Refresh</a>    
-        </div>
-    </div>
-
-    <div class="images-container tmargin20">
-        <?php for($i=0; $i<$noOfImages; $i++) { 
-            $time = microtime(true) + $i; ?>
-            <img src="//img-new2.flixcart.com/www/spdy/test/<?php echo $imageSize;?>kb.jpeg?id=<?php echo $time;?>"/>
-        <?php } ?>
-    </div>
-    <div class="metrics-container">
-        <h2 class="fk-font-18">Performance Metrics of the Experiment</h2>
-    </div>
+      </div>
+      <div class="no-of-images">
+          Enter Number Of Images:  <input type="text" value="<?php echo $noOfImages;?>" />
+      </div>
+      <div class="refresh-cont tmargin20">
+          Refresh the button to load the test with selected params
+          <a href="" class="refresh-btn lmargin10 fk-font-16">Refresh</a>    
+      </div>
   </div>
-  <script type="text/javascript+fk-window-onload">
+
+  <div class="images-container tmargin20">
+      <?php for($i=0; $i<$noOfImages; $i++) {
+         $randNo = rand(pow(10, 8-1), pow(10, 8)-1) + $i; ?>
+         <img src="static/images/<?php echo $imageSize;?>kb.jpeg?id=<?php echo $randNo;?>"/>
+      <?php } ?>
+  </div>
+  <div class="metrics-container">
+      <h2 class="fk-font-18">Performance Metrics of the Experiment</h2>
+  </div>
+  <script type="text/javascript">
       (function(){
           var reloadPage = function(){
               var noOfImages = $('.test-params :input')[0].value;
@@ -69,14 +62,14 @@ if(!empty($_GET['size'])){
           };
 
           $('.test-params .refresh-btn').on('click',function(e){
-              e.preventDefault();
+              e.preventDefault()
               reloadPage();
           });
 
           $('.test-params a').on('click',function(e){
               e.preventDefault();
               var $this = $(this);
-              $this.parent().find('a').removeClass('selected');
+              $this.parent().find('a').removeClass('selected')
               $this.addClass('selected');
           });
 
@@ -143,11 +136,8 @@ if(!empty($_GET['size'])){
           }
           setTimeout(function(){
               collectMetrics();
-          },3000);
+          },0);
       })();
   </script>
-  <div class="footer">
-    
-  </div>
 </body>
 </html>

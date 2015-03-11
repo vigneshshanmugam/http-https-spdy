@@ -1,64 +1,74 @@
-.fksk-content{
-	.test-params{
-		.sizes{
-			width: 600px;
-			display: inline-block;
-			a{
-				display: inline-block;
-				width : 50px;
-				height: 100%;
-				padding: 5px 10px;
-				font-size: 14px;
-				text-align: center;
-				background: #ccc;
-				margin : 5px; 
-				text-decoration: none;
-				@include rounded(5px); 
-				&:hover,&.selected{
-					background: #D2E7B9;
-					color: #333;
-				} 
-			}
-		}
-		.no-of-images{
-			width: 370px;
-			display: inline-block;
-			input{
-				font-size: 16px;
-				width: 60px;
-				text-align: center;
-			}
-		}
+.test-params{
+	font-size: 16px;
+}
 
-		.refresh-cont{
-			margin-top: 20px;
-			.refresh-btn{
-				width :60px;
-				height: 100%;
-				padding: 5px;
-				@include rounded(5px); 
-				text-decoration: none;
-				background-color: #2F642F;
-				color: #eee;
-			}
-		}
+.test-params .no-of-images{
+	width: 370px;
+	display: inline-block;
+
+}
 		
-	}
-	.images-container{
-		display: inline-block;
-		margin : 0 20px;
-		border: 1px solid #ccc;
-		min-height: 200px;
-		margin-top: 25px; 
-		img{
-			width: 50px;
-			height: 50px;
-		}
-	}
-	.metrics-container{
-		margin: 20px;
-		p{
-			font-size: 14px;
-		}
-	}
+.test-params .no-of-images input{
+	font-size: 16px;
+	width: 60px;
+	margin-left: 10px;
+	text-align: center;
+}
+
+.test-params .sizes{
+	width: 600px;
+	display: inline-block;
+}
+
+.test-params .sizes a{
+	display: inline-block;
+	width : 50px;
+	height: 100%;
+	padding: 5px 10px;
+	font-size: 14px;
+	text-align: center;
+	background: #ccc;
+	margin : 5px; 
+	text-decoration: none;
+	border-radius: 5px; 
+} 
+
+.tmargin20{
+	margin-top: 20px;
+}
+
+.center{
+	text-align: center;
+}
+
+.test-params .refresh-btn{
+	width :60px;
+	height: 100%;
+	padding: 5px;
+	border-radius: 5px; 
+	text-decoration: none;
+	background-color: #2F642F;
+	color: #eee;
+}
+
+.images-container{
+	display: inline-block;
+	margin : 0 20px;
+	border: 1px solid #ccc;
+	min-height: 200px;
+	margin-top: 25px; 
+	
+}
+
+.images-container img{
+	width: 50px;
+	height: 50px;
+}
+
+.metrics-container{
+	margin: 20px;
+}
+
+.metrics-container p{
+	font-size: 14px;
 }
